@@ -1,0 +1,55 @@
+﻿# Dancing Queen 网站修改指南
+================================
+
+## 如何修改网站内容
+
+### 方法一：用记事本（最简单）
+1. 右键点击 HTML 文件 → 打开方式 → 记事本
+2. 找到要改的文字，直接编辑
+3. 保存（Ctrl+S）
+4. 重新打包上传到 Vercel
+
+### 方法二：用 VS Code（推荐）
+1. 下载：https://code.visualstudio.com
+2. 打开项目文件夹
+3. 编辑 HTML 文件
+4. 保存后重新打包上传
+
+## 常用修改内容
+
+### 修改价格
+搜索 $48 或 $52 等价格，直接改数字
+
+### 修改产品描述
+在 <p> 标签里修改文字
+
+### 修改联系方式
+搜索 G18179464032 或 +86 17758084410
+
+### 添加新产品
+1. 在 images/incense/ 添加图片
+2. 复制一个产品卡片，修改名称和价格
+3. 更新 product-detail.html 添加新产品数据
+
+## 重新打包步骤
+
+1. 删除 .xlsx 文件
+2. 右键文件夹 → 发送到 → 压缩文件夹
+3. 重命名为 dancing-queen.zip
+4. 打开 https://vercel.com/dashboard
+5. 点击项目 → Redeploy → 上传新 ZIP
+
+## 文件说明
+
+- index.html          - 首页
+- incense.html        - 合香珠单品页
+- products.html       - 所有品类页
+- product-detail.html - 产品详情页
+- trendy.html         - 流行饰品页
+- styles.css          - 样式文件
+- images/incense/     - 合香珠产品图
+- images/trendy/      - 流行饰品图
+
+================================
+祝你网站运营顺利！
+Dancing Queen · 念珠手作

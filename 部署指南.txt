@@ -1,0 +1,111 @@
+﻿# Dancing Queen 独立站部署指南
+========================================
+
+## 📦 部署包信息
+
+文件名: dancing-queen-deploy.zip
+大小: 91.2 MB
+位置: C:\Users\Admin1\Desktop\新建文件夹 (2)\
+
+## 🚀 部署步骤
+
+### 方法一：网页上传（当前推荐）
+
+由于网络限制，建议使用网页上传方式：
+
+1. **打开浏览器访问**
+   https://vercel.com
+
+2. **登录账号**
+   - 点击 "Sign In"
+   - 使用 GitHub 账号一键登录（推荐）
+   - 或输入邮箱注册
+
+3. **创建新项目**
+   - 点击 "Add New..." → "Project"
+
+4. **导入项目**
+   - 选择 "Import" 方式
+   - 点击 "Upload" 按钮
+   - 选择文件: dancing-queen-deploy.zip
+   - 点击 "Deploy"
+
+5. **等待部署**
+   - 约 1-2 分钟完成部署
+   - 部署成功后会显示访问链接
+
+6. **获取网址**
+   - 部署完成后会得到类似地址:
+   https://dancing-queen.vercel.app
+
+### 方法二：使用 VPN 后命令行部署
+
+如果你可以开启 VPN/代理：
+
+1. **安装 Vercel CLI**
+   `ash
+   npm install -g vercel
+   `
+
+2. **登录账号**
+   `ash
+   vercel login
+   `
+
+3. **进入项目目录**
+   `ash
+   cd "C:\Users\Admin1\Desktop\新建文件夹 (2)"
+   `
+
+4. **部署到生产环境**
+   `ash
+   vercel --prod
+   `
+
+5. **绑定自定义域名（可选）**
+   `ash
+   vercel domains add yourdomain.com
+   `
+
+## 🔗 绑定自定义域名
+
+1. 登录 Vercel Dashboard
+2. 进入你的项目 → Settings → Domains
+3. 输入你的域名（如 www.dancingqueen.com）
+4. 按提示修改 DNS 记录：
+   - 添加 CNAME: www → cname.vercel-dns.com
+   - 或添加 A: @ → 76.76.21.21
+5. 等待 DNS 生效（通常 10分钟-24小时）
+
+## ✏️ 后续更新
+
+修改网站内容后：
+
+1. 重新打包文件（删除 xlsx 等大文件）
+2. 上传到 Vercel Dashboard
+3. 点击 "Redeploy" 重新部署
+4. 约 1-2 分钟完成更新
+
+## 📱 支付方式配置
+
+页面已预留支付区域：
+- 微信支付二维码: images/payments/wechat-pay.jpg
+- 支付宝二维码: images/payments/alipay.jpg
+- PayPal: 点击按钮后展示支付界面
+
+后期可随时替换为真实收款码。
+
+## 🌐 当前网站功能
+
+✓ 首页展示（合香珠系列 + 药材展示）
+✓ 产品列表（9款合香珠手链）
+✓ 产品详情（双图布局 + 支付选择）
+✓ 品牌故事
+✓ 联系方式（WeChat: abc568347492）
+✓ WhatsApp: +86 13738901892
+✓ 电话: +86 13738901892
+
+========================================
+祝你部署顺利！
+Dancing Queen · 念珠手作
+========================================

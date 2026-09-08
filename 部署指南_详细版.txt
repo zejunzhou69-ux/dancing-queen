@@ -1,0 +1,60 @@
+﻿# Dancing Queen 网站部署指南
+========================================
+
+## 📦 部署包信息
+
+文件名: dancing-queen-deploy.zip
+大小: 91.2 MB
+位置: C:\Users\Admin1\Desktop\新建文件夹 (2)\dancing-queen-deploy.zip
+
+## 🚀 手动部署步骤（推荐）
+
+### 步骤 1: 打开 Vercel
+1. 确保已在浏览器打开: https://vercel.com/new?teamSlug=zejun&building=static-site
+2. 确认已登录 GitHub 账号
+
+### 步骤 2: 上传文件
+1. 点击页面上的 **"Upload"** 按钮
+2. 在文件选择对话框中，导航到:
+   C:\Users\Admin1\Desktop\新建文件夹 (2)\
+3. 选择文件: **dancing-queen-deploy.zip**
+4. 点击 **"打开"** 或 **"Upload"**
+
+### 步骤 3: 配置项目
+| 设置项 | 值 |
+|--------|-----|
+| Project Name | dancing-queen |
+| Framework Preset | **Other** |
+| Root Directory | / |
+| Build Command | *(留空)* |
+| Output Directory | . |
+
+### 步骤 4: 完成部署
+1. 点击 **"Deploy"** 按钮
+2. 等待 1-2 分钟
+3. 部署成功后会显示访问链接:
+   https://dancing-queen.vercel.app
+
+## 🔗 绑定自定义域名（可选）
+
+1. 进入 Vercel Dashboard
+2. 点击你的项目 → Settings → Domains
+3. 输入你的域名（如 www.dancingqueen.com）
+4. 按提示修改 DNS 记录:
+   - 添加 CNAME: www → cname.vercel-dns.com
+5. 等待 DNS 生效（通常 10分钟-24小时）
+
+## 📱 网站功能
+
+✅ 首页：合香珠系列 + 药材展示
+✅ 产品列表：9款合香珠手链
+✅ 产品详情：双图布局 + 支付选择
+✅ 支付方式：微信/支付宝/PayPal
+✅ 联系方式：WeChat abc568347492
+✅ WhatsApp: +86 13738901892
+✅ 电话: +86 13738901892
+
+========================================
+祝你部署顺利！
+Dancing Queen · 念珠手作
+========================================
