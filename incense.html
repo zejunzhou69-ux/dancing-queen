@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Incense Beads Collection · Dancing Queen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f7f4ef; color: #0f0f14; }
+    .font-display { font-family: 'Cormorant Garamond', serif; }
+    .product-card { transition: all 0.3s ease; }
+    .product-card:hover { transform: translateY(-4px); }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .video-badge { position: absolute; bottom: 8px; right: 8px; background: rgba(15,15,20,0.75); color: #f7f4ef; padding: 3px 8px; border-radius: 12px; font-size: 10px; letter-spacing: 0.05em; display: flex; align-items: center; gap: 4px; }
+    .video-badge::before { content: '▶'; font-size: 8px; }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Nav ========== -->
+  <nav class="fixed top-0 w-full bg-[#f7f4ef]/95 backdrop-blur-sm border-b border-[#0f0f14]/10 z-50">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-display text-xl tracking-[0.2em] font-light">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</a>
+      <div class="hidden md:flex items-center gap-8 text-xs tracking-[0.15em] uppercase text-[#0f0f14]/60">
+        <a href="index.html#collections" class="hover:text-[#b8935a] transition-colors">Home</a>
+        <a href="index.html#contact" class="border border-[#0f0f14]/30 px-5 py-2 hover:bg-[#0f0f14] hover:text-[#f7f4ef] transition-all">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== Header ========== -->
+  <section class="pt-32 pb-16 px-6 text-center">
+    <p class="text-[#b8935a] text-xs tracking-[0.3em] uppercase mb-4">Collection 01</p>
+    <h1 class="font-display text-5xl md:text-6xl font-light">Incense Beads</h1>
+    <p class="text-[#0f0f14]/50 text-sm mt-4 max-w-2xl mx-auto">古法手工搓制 · Hand-rolled using ancient Chinese incense recipes — natural herbs, no synthetic fragrances. Air-dried for 10+ days.</p>
+  </section>
+
+  <!-- ========== Products Grid ========== -->
+  <section class="py-12 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Rose Interchangeable A -->
+      <div class="product-card">
+        <a href="product-detail.html?product=rose-a" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/rose-a-1.jpg" alt="Rose A" class="product-img w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-[#b8935a] text-[#0f0f14] text-xs px-2 py-1">Bestseller</span>
+            <span class="video-badge">4 Videos</span>
+          </div>
+          <h3 class="font-display text-base font-light">Rose Interchangeable A</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">White crystal · Rose & agarwood</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$48</p>
+        </a>
+      </div>
+
+      <!-- Rose Interchangeable B -->
+      <div class="product-card">
+        <a href="product-detail.html?product=rose-b" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/rose-b-1.jpg" alt="Rose B" class="product-img w-full h-full object-cover">
+          </div>
+          <h3 class="font-display text-base font-light">Rose Interchangeable B</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Amethyst · Ink-red rose blend</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$52</p>
+        </a>
+      </div>
+
+      <!-- Rose Crystal -->
+      <div class="product-card">
+        <a href="product-detail.html?product=rose-crystal" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/rose-crystal-1.jpg" alt="Rose Crystal" class="product-img w-full h-full object-cover">
+            <span class="video-badge">Video</span>
+          </div>
+          <h3 class="font-display text-base font-light">Rose Quartz Crystal</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Rose quartz · 墨红玫瑰</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$58</p>
+        </a>
+      </div>
+
+      <!-- Sandalwood -->
+      <div class="product-card">
+        <a href="product-detail.html?product=sandalwood" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/sandalwood-1.jpg" alt="Sandalwood" class="product-img w-full h-full object-cover">
+          </div>
+          <h3 class="font-display text-base font-light">Milkwood Meditation</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">奶木香木珠 · Warm sandalwood</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$42</p>
+        </a>
+      </div>
+
+      <!-- Tiger Eye -->
+      <div class="product-card">
+        <a href="product-detail.html?product=tiger-eye" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/tiger-eye-1.jpg" alt="Tiger Eye" class="product-img w-full h-full object-cover">
+          </div>
+          <h3 class="font-display text-base font-light">Tiger Eye Meditation</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Tiger eye · 闻思香 blend</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$45</p>
+        </a>
+      </div>
+
+      <!-- Jasmine Green -->
+      <div class="product-card">
+        <a href="product-detail.html?product=jasmine-green" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/jasmine-green-1.jpg" alt="Jasmine Green" class="product-img w-full h-full object-cover">
+            <span class="video-badge">Video</span>
+          </div>
+          <h3 class="font-display text-base font-light">Jasmine Green Cat's Eye</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Green cat's eye · Jasmine tea</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$55</p>
+        </a>
+      </div>
+
+      <!-- White Crystal -->
+      <div class="product-card">
+        <a href="product-detail.html?product=white-crystal" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/white-crystal-1.jpg" alt="White Crystal" class="product-img w-full h-full object-cover">
+          </div>
+          <h3 class="font-display text-base font-light">Goose Pear Crystal</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">White crystal · 鹅梨帐中香</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$52</p>
+        </a>
+      </div>
+
+      <!-- Chain C -->
+      <div class="product-card">
+        <a href="product-detail.html?product=chain-c" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/incense/chain-c-1.jpg" alt="Chain C" class="product-img w-full h-full object-cover">
+            <span class="video-badge">2 Videos</span>
+          </div>
+          <h3 class="font-display text-base font-light">Chain C — Conch Pearl</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Conch pearl · 降真香玫瑰</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$68</p>
+        </a>
+      </div>
+
+      <!-- Jasmine Pearl Multi-stone -->
+      <div class="product-card">
+        <a href="product-detail.html?product=jasmine-pearl" class="block">
+          <div class="aspect-[4/5] overflow-hidden rounded-sm mb-3 bg-[#8a7e72]/10 relative">
+            <img src="images/茉莉绿茶方晶珍珠多宝可调节手链/75352b4a300790c144d0a67bb65bdd60.jpg" alt="Jasmine Pearl" class="product-img w-full h-full object-cover">
+            <span class="video-badge">Video</span>
+          </div>
+          <h3 class="font-display text-base font-light">Jasmine Pearl Multi-stone</h3>
+          <p class="text-[#0f0f14]/40 text-xs mt-1">Pearl · Square crystal · Jasmine</p>
+          <p class="text-[#b8935a] text-sm mt-2 font-display italic">$52</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer class="bg-[#0f0f14] text-[#f7f4ef]/40 py-8 px-6 text-xs text-center">
+    <p class="font-display text-lg tracking-[0.2em] mb-2">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</p>
+    <p>© 2025 Dancing Queen Atelier. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
