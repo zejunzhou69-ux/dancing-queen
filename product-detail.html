@@ -354,7 +354,7 @@
         const card = document.createElement('div');
         card.className = 'video-card';
         card.innerHTML = `
-          <video src="${v.src}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
+          <video src="${v.src}" controls muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
           <span class="video-label">${v.label}</span>
         `;
         videoGrid.appendChild(card);
@@ -389,6 +389,7 @@
   </script>
 </body>
 </html>
+
 
 
 
