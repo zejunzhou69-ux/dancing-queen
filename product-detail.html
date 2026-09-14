@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Detail · Dancing Queen</title>
+  <title id="pgTitle">Product Detail · Dancing Queen</title>
+  <meta name="description" content="View product details for our hand-rolled incense bead bracelets. Natural herbs, ancient recipes.">
+  <meta property="og:type" content="product">
+  <meta property="og:image" content="images/incense/rose-a-1.jpg">
+  <meta name="theme-color" content="#0f0f14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f14'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%23b8935a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23b8935a'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #f7f4ef; color: #0f0f14; }
@@ -39,15 +45,40 @@
 
   <!-- ========== Nav ========== -->
   <nav class="fixed top-0 w-full bg-[#f7f4ef]/95 backdrop-blur-sm border-b border-[#0f0f14]/10 z-50">
-    <div class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between">
-      <a href="index.html" class="font-display text-2xl tracking-[0.2em] text-[#0f0f14] font-light">
+    <div class="max-w-7xl mx-auto px-6 md:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
+      <a href="index.html" class="font-display text-lg md:text-2xl tracking-[0.2em] text-[#0f0f14] font-light whitespace-nowrap">
         DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN
       </a>
-      <div class="hidden md:flex items-center gap-10 text-xs tracking-[0.15em] uppercase text-[#0f0f14]/60">
-        <a href="index.html#collections" class="hover:text-[#b8935a] transition-colors">Collections</a>
+
+      <div class="hidden md:flex items-center gap-8 text-xs tracking-[0.15em] uppercase text-[#0f0f14]/60">
+        <a href="products.html" class="hover:text-[#b8935a] transition-colors">Shop</a>
+        <a href="incense.html" class="hover:text-[#b8935a] transition-colors">Incense Beads</a>
         <a href="index.html#story" class="hover:text-[#b8935a] transition-colors">Our Story</a>
         <a href="index.html#contact" class="hover:text-[#b8935a] transition-colors">Contact</a>
-        <a href="index.html#contact" class="ml-4 border border-[#0f0f14]/30 px-6 py-2.5 hover:bg-[#0f0f14] hover:text-[#f7f4ef] transition-all duration-300 text-xs tracking-[0.15em] uppercase">Inquire</a>
+        <button type="button" data-cart-open class="relative p-2 hover:text-[#b8935a] transition-colors" aria-label="Open cart">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M6 7h12l-1 12H7L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/></svg>
+          <span data-cart-count data-cart-count-plain class="dq-cart-dot absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-[#b8935a] text-[#0f0f14] text-[10px] font-semibold items-center justify-center" style="display:none">0</span>
+        </button>
+      </div>
+
+      <div class="md:hidden flex items-center gap-1">
+        <button type="button" data-cart-open class="relative p-2 hover:text-[#b8935a] transition-colors" aria-label="Open cart">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M6 7h12l-1 12H7L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/></svg>
+          <span data-cart-count data-cart-count-plain class="dq-cart-dot absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-[#b8935a] text-[#0f0f14] text-[10px] font-semibold items-center justify-center" style="display:none">0</span>
+        </button>
+        <button type="button" data-menu-toggle aria-expanded="false" aria-label="Menu" class="p-2 hover:text-[#b8935a] transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div data-menu class="hidden md:hidden border-t border-[#0f0f14]/10 bg-[#f7f4ef]">
+      <div class="px-6 py-2 flex flex-col text-xs tracking-[0.2em] uppercase text-[#0f0f14]/70">
+        <a href="index.html" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Home</a>
+        <a href="products.html" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Shop All</a>
+        <a href="incense.html" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Incense Beads</a>
+        <a href="index.html#story" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Our Story</a>
+        <a href="index.html#contact" class="py-4 hover:text-[#b8935a]">Contact</a>
       </div>
     </div>
   </nav>
@@ -149,14 +180,26 @@
           </div>
         </div>
 
-        <!-- Inquiry Section -->
-        <div class="space-y-3">
-          <a href="index.html#contact" class="block w-full bg-[#0f0f14] text-[#f7f4ef] text-center py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#b8935a] transition-colors duration-300">
-            Inquire to Order · 咨询订购
-          </a>
-          <a href="index.html#contact" class="block w-full border border-[#0f0f14]/20 text-[#0f0f14] text-center py-4 text-xs tracking-[0.2em] uppercase hover:border-[#b8935a] hover:text-[#b8935a] transition-all duration-300">
-            Contact Us
-          </a>
+        <!-- Add to Cart / Inquiry -->
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center border border-[#0f0f14]/20">
+              <button type="button" class="dq-qty-btn w-9 h-10 text-[#0f0f14]/60 hover:text-[#b8935a] transition-colors" data-qty-dir="-1">−</button>
+              <input id="dqQty" type="number" value="1" min="1" max="20" data-qty class="w-12 text-center text-sm border-x border-[#0f0f14]/20 py-2 focus:outline-none bg-transparent">
+              <button type="button" class="dq-qty-btn w-9 h-10 text-[#0f0f14]/60 hover:text-[#b8935a] transition-colors" data-qty-dir="1">+</button>
+            </div>
+            <button type="button" id="dqAddBtn" data-add-to-cart="rose-a" class="flex-1 bg-[#0f0f14] text-[#f7f4ef] py-3.5 text-xs tracking-[0.2em] uppercase hover:bg-[#b8935a] transition-colors duration-300">
+              Add to Cart · 加入购物车
+            </button>
+          </div>
+          <button type="button" data-cart-open class="block w-full border border-[#0f0f14]/20 text-[#0f0f14] text-center py-3.5 text-xs tracking-[0.2em] uppercase hover:border-[#b8935a] hover:text-[#b8935a] transition-all duration-300">
+            View Cart · 查看购物车
+          </button>
+        </div>
+
+        <div class="pt-6 border-t border-[#0f0f14]/10 text-xs text-[#0f0f14]/40 space-y-2">
+          <p>有问题？<a href="https://wa.me/8613738901892" target="_blank" rel="noopener" class="text-[#b8935a] hover:underline">WhatsApp 联系我们</a></p>
+          <p>WeChat · 微信: <span class="select-all text-[#0f0f14]/70">abc568347492</span></p>
         </div>
 
         <!-- Back link -->
@@ -170,223 +213,136 @@
   </section>
 
   <!-- ========== Footer ========== -->
-  <footer class="bg-[#0f0f14] text-[#f7f4ef]/40 py-12 px-8 text-xs">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-      <p class="font-display text-lg tracking-[0.2em] text-[#f7f4ef] font-light">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</p>
+  <footer class="bg-[#0f0f14] text-[#f7f4ef]/40 py-12 px-6 md:px-8 text-xs">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <p class="font-display text-xl tracking-[0.2em] text-[#f7f4ef] font-light mb-3">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</p>
+        <p class="text-xs leading-relaxed">Hand-rolled incense bead bracelets. Natural herbs, ancient recipes.</p>
+      </div>
+      <div>
+        <p class="text-[#b8935a] text-xs tracking-[0.2em] uppercase mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-[#b8935a] transition-colors">All Pieces</a></li>
+          <li><a href="index.html" class="hover:text-[#b8935a] transition-colors">Home</a></li>
+          <li><a href="incense.html" class="hover:text-[#b8935a] transition-colors">Incense Beads</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[#b8935a] text-xs tracking-[0.2em] uppercase mb-3">Contact</p>
+        <ul class="space-y-2">
+          <li>WeChat · 微信 abc568347492</li>
+          <li>WhatsApp +86 13738901892</li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-8 pt-6 border-t border-[#f7f4ef]/10 text-center">
       <p>© 2025 Dancing Queen Atelier. All rights reserved.</p>
     </div>
   </footer>
 
+  <script src="assets/js/products.js"></script>
   <script>
-    const products = {
-      'rose-a': {
-        name: 'Rose Interchangeable A',
-        price: '$48',
-        desc: 'Hand-rolled incense beads with natural rose and agarwood blend. Features our signature interchangeable clasp system — swap beads to change your scent. Each bracelet comes with a white crystal bead and a replaceable incense chain.',
-        materials: 'White crystal · 白水晶 / Rose incense bead · 玫瑰合香珠 / Pearl · 珍珠 / Replaceable chain · 可替换链条',
-        images: [
-          'images/incense/rose-a-1.jpg',
-          'images/incense/rose-a-2.jpg',
-          'images/incense/rose-a-3.jpg',
-          'images/incense/rose-a-4.jpg',
-          'images/incense/rose-a-5.jpg',
-          'images/incense/rose-a-6.jpg',
-          'images/incense/rose-a-7.jpg',
-          'images/incense/rose-a-8.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Detail view', 'On wrist', 'Texture', 'Material', 'Craft detail', 'Complete set', 'Packaging'],
-        videos: [
-          { src: 'images/incense/rose-a-video1.mp4', label: 'Video 1' },
-          { src: 'images/incense/rose-a-video2.mp4', label: 'Video 2' },
-          { src: 'images/incense/rose-a-video3.mp4', label: 'Video 3' },
-          { src: 'images/incense/rose-a-video4.mp4', label: 'Video 4' }
-        ]
-      },
-      'rose-b': {
-        name: 'Rose Interchangeable B',
-        price: '$52',
-        desc: 'Amethyst and ink-red rose blend with interchangeable design. Perfect for those who love deeper, more mysterious scents. Each bracelet features purple amethyst beads paired with墨红玫瑰合香珠.',
-        materials: 'Amethyst · 紫水晶 / Ink-red rose incense bead · 墨红玫瑰合香珠 / Replaceable chain · 可替换链条',
-        images: [
-          'images/incense/rose-b-1.jpg',
-          'images/incense/rose-b-2.jpg',
-          'images/incense/rose-b-3.jpg',
-          'images/incense/rose-b-4.jpg',
-          'images/incense/rose-b-5.jpg',
-          'images/incense/rose-b-6.jpg',
-          'images/incense/rose-b-7.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Detail view', 'Stone closeup', 'On wrist', 'Texture', 'Complete set', 'Packaging'],
-        videos: []
-      },
-      'rose-crystal': {
-        name: 'Rose Quartz Crystal',
-        price: '$58',
-        desc: 'Pure rose quartz and墨红玫瑰 blend in a fixed design. Features natural rose quartz stones with our signature墨红玫瑰 incense beads. A classic, elegant piece for everyday wear.',
-        materials: 'Rose quartz · 粉晶 / Ink-red rose incense bead · 墨红玫瑰合香珠 / White crystal · 白水晶 / Blue crystal · 蓝色原石 / Copper-silver extension chain · 铜镀银延长链',
-        images: [
-          'images/incense/rose-crystal-1.jpg',
-          'images/incense/rose-crystal-2.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Detail view'],
-        videos: [
-          { src: 'images/incense/rose-crystal-video.mp4', label: 'Product Video' }
-        ]
-      },
-      'sandalwood': {
-        name: 'Milkwood Meditation',
-        price: '$42',
-        desc: 'Warm milkwood and agarwood blend. Grounding and meditative. Simple, elegant design focusing on the natural beauty of 奶木香木珠.',
-        materials: 'Milkwood incense bead · 奶木香木珠',
-        images: [
-          'images/incense/sandalwood-1.jpg'
-        ],
-        imgDescriptions: ['Main shot'],
-        videos: []
-      },
-      'tiger-eye': {
-        name: 'Tiger Eye Meditation',
-        price: '$45',
-        desc: 'Tiger eye stone with grounding闻思香 incense blend. Bold and protective. Each bead is paired with a natural tiger eye stone.',
-        materials: 'Tiger eye stone · 虎眼石 / 闻思香 incense bead · 状元闻思香合香珠',
-        images: [
-          'images/incense/tiger-eye-1.jpg',
-          'images/incense/tiger-eye-2.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Stone detail'],
-        videos: []
-      },
-      'jasmine-green': {
-        name: 'Jasmine Green Cat\'s Eye',
-        price: '$55',
-        desc: 'Jasmine tea and green cat\'s eye stone. Light and refreshing. Features copper-silver accessories for a premium finish.',
-        materials: 'Jasmine green incense bead · 茉莉绿茶合香珠 / Green cat\'s eye stone · 绿猫眼石 / Copper-silver accessories · 铜镀银配饰',
-        images: [
-          'images/incense/jasmine-green-1.jpg',
-          'images/incense/jasmine-green-2.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Texture detail'],
-        videos: [
-          { src: 'images/incense/jasmine-green-video.mp4', label: 'Product Video' }
-        ]
-      },
-      'white-crystal': {
-        name: 'Goose Pear Crystal',
-        price: '$52',
-        desc: 'Clear quartz with 鹅梨帐中香. Clean and purifying. The 鹅梨帐中香 recipe is a classical Chinese incense blend from Tang dynasty.',
-        materials: 'White crystal · 白水晶 / 鹅梨帐中香 incense bead · 鹅梨清露合香珠',
-        images: [
-          'images/incense/white-crystal-1.jpg',
-          'images/incense/white-crystal-2.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Crystal detail'],
-        videos: []
-      },
-      'chain-c': {
-        name: 'Chain C — Conch Pearl',
-        price: '$68',
-        desc: 'Premium drop beads with agarwood rose blend. Luxury interchangeable design. Features 贝珠 (conch pearl) with 降真香玫瑰 incense beads and a replaceable chain.',
-        materials: 'Conch pearl · 贝珠 / 降真香玫瑰 incense bead · 降真香玫瑰合香珠 / Replaceable chain · 可替换链条珠',
-        images: [
-          'images/incense/chain-c-1.jpg',
-          'images/incense/chain-c-2.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Clasp detail'],
-        videos: [
-          { src: 'images/incense/chain-c-video1.mp4', label: 'Video 1' },
-          { src: 'images/incense/chain-c-video2.mp4', label: 'Video 2' }
-        ]
-      },
-      'jasmine-pearl': {
-        name: 'Jasmine Pearl Multi-stone',
-        price: '$52',
-        desc: 'Pearl and square crystal multi-stone design with jasmine green incense beads. Adjustable fit for any wrist. A beautiful fusion of traditional incense craft and modern crystal jewelry.',
-        materials: 'Pearl · 珍珠 / Jasmine green incense bead · 茉莉绿茶合香珠 / Square white crystal · 方块白水晶',
-        images: [
-          'images/incense/jasmine-green-1.jpg',
-          'images/incense/jasmine-green-2.jpg',
-          'images/incense/jasmine-green-detail.jpg'
-        ],
-        imgDescriptions: ['Main shot', 'Detail view', 'On wrist'],
-        videos: [
-          { src: 'images/incense/jasmine-pearl-video.mp4', label: 'Product Video' }
-        ]
-      }
-    };
-
-    const params = new URLSearchParams(window.location.search);
-    const productId = params.get('product');
-    const product = products[productId] || products['rose-a'];
-
-    document.getElementById('productName').textContent = product.name;
-    document.getElementById('productPrice').textContent = product.price;
-    document.getElementById('productDesc').textContent = product.desc;
-    document.getElementById('productMaterials').textContent = product.materials;
-    document.getElementById('breadcrumb-product').textContent = product.name;
-
-    const mainImage = document.getElementById('mainImage');
-    const thumbnailGrid = document.getElementById('thumbnailGrid');
-    const imgCounter = document.getElementById('imgCounter');
-    const videoSection = document.getElementById('videoSection');
-    const videoGrid = document.getElementById('videoGrid');
-
-    imgCounter.textContent = `1 / ${product.images.length}`;
-
-    thumbnailGrid.innerHTML = '';
-    const colCount = product.images.length <= 2 ? 2 : product.images.length <= 4 ? 4 : 5;
-    thumbnailGrid.className = `thumbnails-grid cols-${colCount} gap-3`;
-
-    product.images.forEach((src, index) => {
-      const thumb = document.createElement('div');
-      thumb.className = `gallery-thumb aspect-square rounded-sm overflow-hidden bg-[#8a7e72]/10 ${index === 0 ? 'active' : ''}`;
-      thumb.onclick = () => changeImage(index);
-      thumb.innerHTML = `<img src="${src}" class="w-full h-full object-cover" alt="Image ${index + 1}">`;
-      thumbnailGrid.appendChild(thumb);
-    });
-
-    mainImage.src = product.images[0];
-
-    // Render videos
-    if (product.videos && product.videos.length > 0) {
-      videoSection.classList.remove('hidden');
-      videoGrid.innerHTML = '';
-      product.videos.forEach((v, i) => {
-        const card = document.createElement('div');
-        card.className = 'video-card';
-        card.innerHTML = `
-          <video src="${v.src}" controls muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>
-          <span class="video-label">${v.label}</span>
-        `;
-        videoGrid.appendChild(card);
-      });
+    const catalog = window.DQ_PRODUCTS || {};
+    function money(n) {
+      n = Number(n) || 0;
+      return '$' + (Math.abs(n % 1) < 0.005 ? n.toFixed(0) : n.toFixed(2));
     }
-
-    window.changeImage = function(index) {
-      mainImage.style.opacity = '0';
-      setTimeout(() => {
-        mainImage.src = product.images[index];
-        mainImage.style.opacity = '1';
-      }, 150);
-      
-      imgCounter.textContent = `${index + 1} / ${product.images.length}`;
-      
-      document.querySelectorAll('.gallery-thumb').forEach((thumb, i) => {
-        thumb.classList.toggle('active', i === index);
-      });
-    };
-
-    document.addEventListener('keydown', (e) => {
-      const currentSrc = mainImage.src;
-      const currentIndex = product.images.indexOf(currentSrc);
-      if (currentIndex === -1) return;
-      
-      if (e.key === 'ArrowLeft' && currentIndex > 0) {
-        changeImage(currentIndex - 1);
-      } else if (e.key === 'ArrowRight' && currentIndex < product.images.length - 1) {
-        changeImage(currentIndex + 1);
-      }
-    });
+    function esc(s) { return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
   </script>
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var productId = params.get('product');
+      var product = catalog[productId] || Object.values(catalog)[0];
+      if (!product) return;
+
+      // Update page title
+      document.title = product.name + ' · Dancing Queen';
+      var ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', product.name + ' · Dancing Queen');
+      var ogImg = document.querySelector('meta[property="og:image"]');
+      if (ogImg) ogImg.setAttribute('content', product.thumb || product.images[0]);
+
+      // Fill info
+      document.getElementById('productName').textContent = product.name;
+      document.getElementById('productPrice').textContent = money(product.price);
+      document.getElementById('productDesc').textContent = product.desc;
+      document.getElementById('productMaterials').textContent = product.materials;
+      document.getElementById('breadcrumb-product').textContent = product.name;
+
+      // Set add-to-cart button id
+      var addBtn = document.getElementById('dqAddBtn');
+      if (addBtn) addBtn.setAttribute('data-add-to-cart', product.id);
+
+      // Gallery
+      var mainImage = document.getElementById('mainImage');
+      var thumbnailGrid = document.getElementById('thumbnailGrid');
+      var imgCounter = document.getElementById('imgCounter');
+      var videoSection = document.getElementById('videoSection');
+      var videoGrid = document.getElementById('videoGrid');
+
+      imgCounter.textContent = '1 / ' + product.images.length;
+
+      thumbnailGrid.innerHTML = '';
+      var colCount = product.images.length <= 2 ? 2 : product.images.length <= 4 ? 4 : 5;
+      thumbnailGrid.className = 'thumbnails-grid cols-' + colCount + ' gap-3';
+
+      product.images.forEach(function(src, index) {
+        var thumb = document.createElement('div');
+        thumb.className = 'gallery-thumb aspect-square rounded-sm overflow-hidden bg-[#8a7e72]/10' + (index === 0 ? ' active' : '');
+        thumb.onclick = function() { changeImage(index); };
+        thumb.innerHTML = '<img src="' + esc(src) + '" class="w-full h-full object-cover" alt="Image ' + (index + 1) + '">';
+        thumbnailGrid.appendChild(thumb);
+      });
+
+      mainImage.src = product.images[0];
+
+      if (product.videos && product.videos.length > 0) {
+        videoSection.classList.remove('hidden');
+        videoGrid.innerHTML = '';
+        product.videos.forEach(function(v) {
+          var card = document.createElement('div');
+          card.className = 'video-card';
+          card.innerHTML = '<video src="' + esc(v.src) + '" controls muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video><span class="video-label">' + esc(v.label) + '</span>';
+          videoGrid.appendChild(card);
+        });
+      }
+
+      window.changeImage = function(index) {
+        mainImage.style.opacity = '0';
+        setTimeout(function() {
+          mainImage.src = product.images[index];
+          mainImage.style.opacity = '1';
+        }, 150);
+        imgCounter.textContent = (index + 1) + ' / ' + product.images.length;
+        var thumbs = document.querySelectorAll('.gallery-thumb');
+        thumbs.forEach(function(thumb, i) { thumb.classList.toggle('active', i === index); });
+      };
+
+      document.addEventListener('keydown', function(e) {
+        var cur = product.images.indexOf(mainImage.src);
+        if (cur === -1) return;
+        if (e.key === 'ArrowLeft' && cur > 0) changeImage(cur - 1);
+        else if (e.key === 'ArrowRight' && cur < product.images.length - 1) changeImage(cur + 1);
+      });
+
+      // Quantity buttons
+      var qtyInput = document.getElementById('dqQty');
+      var qtyBtns = document.querySelectorAll('.dq-qty-btn');
+      qtyBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var dir = parseInt(btn.getAttribute('data-qty-dir'), 10) || 1;
+          var v = parseInt(qtyInput.value, 10) || 1;
+          qtyInput.value = Math.max(1, Math.min(20, v + dir));
+        });
+      });
+      qtyInput.addEventListener('change', function() {
+        var v = parseInt(this.value, 10) || 1;
+        this.value = Math.max(1, Math.min(20, v));
+      });
+    })();
+  </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
 </html>
 

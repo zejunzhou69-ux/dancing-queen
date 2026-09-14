@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collections · Dancing Queen</title>
+  <title>All Pieces · Collection · Dancing Queen</title>
+  <meta name="description" content="Browse all 9 hand-rolled Chinese incense bead bracelets. Rose, agarwood, sandalwood, jasmine and crystal collections. Worldwide shipping.">
+  <meta property="og:title" content="All Pieces · Dancing Queen">
+  <meta property="og:description" content="Hand-rolled Chinese incense bead bracelets — natural herbs, ancient recipes, 10+ days air-dried.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/incense/rose-a-1.jpg">
+  <meta name="theme-color" content="#0f0f14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f14'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%23b8935a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23b8935a'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #f7f4ef; color: #0f0f14; }
@@ -21,11 +29,39 @@
 
   <!-- ========== Nav ========== -->
   <nav class="fixed top-0 w-full bg-[#f7f4ef]/95 backdrop-blur-sm border-b border-[#0f0f14]/10 z-50">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="font-display text-xl tracking-[0.2em] font-light">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</a>
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      <a href="index.html" class="font-display text-lg md:text-xl tracking-[0.2em] font-light whitespace-nowrap">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</a>
+
       <div class="hidden md:flex items-center gap-8 text-xs tracking-[0.15em] uppercase text-[#0f0f14]/60">
-        <a href="index.html#collections" class="hover:text-[#b8935a] transition-colors">Home</a>
-        <a href="index.html#contact" class="border border-[#0f0f14]/30 px-5 py-2 hover:bg-[#0f0f14] hover:text-[#f7f4ef] transition-all">Contact</a>
+        <a href="index.html" class="hover:text-[#b8935a] transition-colors">Home</a>
+        <a href="products.html" class="text-[#b8935a]">Shop All</a>
+        <a href="incense.html" class="hover:text-[#b8935a] transition-colors">Incense Beads</a>
+        <a href="index.html#story" class="hover:text-[#b8935a] transition-colors">Our Story</a>
+        <a href="index.html#contact" class="hover:text-[#b8935a] transition-colors">Contact</a>
+        <button type="button" data-cart-open class="relative p-2 hover:text-[#b8935a] transition-colors" aria-label="Open cart">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M6 7h12l-1 12H7L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/></svg>
+          <span data-cart-count data-cart-count-plain class="dq-cart-dot absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-[#b8935a] text-[#0f0f14] text-[10px] font-semibold items-center justify-center" style="display:none">0</span>
+        </button>
+      </div>
+
+      <div class="md:hidden flex items-center gap-1">
+        <button type="button" data-cart-open class="relative p-2 hover:text-[#b8935a] transition-colors" aria-label="Open cart">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M6 7h12l-1 12H7L6 7Zm3 0V5a3 3 0 0 1 6 0v2"/></svg>
+          <span data-cart-count data-cart-count-plain class="dq-cart-dot absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-[#b8935a] text-[#0f0f14] text-[10px] font-semibold items-center justify-center" style="display:none">0</span>
+        </button>
+        <button type="button" data-menu-toggle aria-expanded="false" aria-label="Menu" class="p-2 hover:text-[#b8935a] transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div data-menu class="hidden md:hidden border-t border-[#0f0f14]/10 bg-[#f7f4ef]">
+      <div class="px-6 py-2 flex flex-col text-xs tracking-[0.2em] uppercase text-[#0f0f14]/70">
+        <a href="index.html" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Home</a>
+        <a href="products.html" class="py-4 border-b border-[#0f0f14]/10 text-[#b8935a]">Shop All</a>
+        <a href="incense.html" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Incense Beads</a>
+        <a href="index.html#story" class="py-4 border-b border-[#0f0f14]/10 hover:text-[#b8935a]">Our Story</a>
+        <a href="index.html#contact" class="py-4 hover:text-[#b8935a]">Contact</a>
       </div>
     </div>
   </nav>
@@ -166,10 +202,36 @@
   </section>
 
   <!-- ========== Footer ========== -->
-  <footer class="bg-[#0f0f14] text-[#f7f4ef]/40 py-8 px-6 text-xs text-center">
-    <p class="font-display text-lg tracking-[0.2em] mb-2">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</p>
-    <p>© 2025 Dancing Queen Atelier. All rights reserved.</p>
+  <footer class="bg-[#0f0f14] text-[#f7f4ef]/40 py-12 px-6 text-xs">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div>
+        <p class="font-display text-xl tracking-[0.2em] text-[#f7f4ef] font-light mb-3">DANCING<span class="text-[#b8935a] mx-1">·</span>QUEEN</p>
+        <p class="text-xs leading-relaxed">Hand-rolled incense bead bracelets. Natural herbs, ancient recipes, air-dried 10+ days.</p>
+      </div>
+      <div>
+        <p class="text-[#b8935a] text-xs tracking-[0.2em] uppercase mb-3">Explore</p>
+        <ul class="space-y-2">
+          <li><a href="products.html" class="hover:text-[#b8935a] transition-colors">All Pieces</a></li>
+          <li><a href="incense.html" class="hover:text-[#b8935a] transition-colors">Incense Beads</a></li>
+          <li><a href="index.html#story" class="hover:text-[#b8935a] transition-colors">Our Story</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-[#b8935a] text-xs tracking-[0.2em] uppercase mb-3">Contact</p>
+        <ul class="space-y-2">
+          <li>WeChat · 微信 abc568347492</li>
+          <li>WhatsApp +86 13738901892</li>
+          <li><a href="https://wa.me/8613738901892" target="_blank" rel="noopener" class="hover:text-[#b8935a] transition-colors">Start a chat</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto mt-8 pt-6 border-t border-[#f7f4ef]/10 text-center">
+      <p>© 2025 Dancing Queen Atelier. All rights reserved.</p>
+    </div>
   </footer>
+
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/site.js"></script>
 
 </body>
 </html>
