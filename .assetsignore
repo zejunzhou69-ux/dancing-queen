@@ -1,0 +1,11 @@
+.codebuddy
+dancing-queen-new
+_upload_temp
+*.zip
+*.md
+*.txt
+server.log
+server.err
+wrangler.jsonc
+.assetsignore
+.gitignore
