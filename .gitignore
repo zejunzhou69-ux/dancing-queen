@@ -1,40 +1,9 @@
-﻿# Node modules
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-*.egg-info/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
+﻿node_modules/
 .DS_Store
 Thumbs.db
-
-# Deployment package
-*.zip
-
-# Excel files (if any)
-*.xlsx
-*.xls
-*.csv
-
-# Logs
 *.log
-
-# Temporary files
-*.tmp
-*.temp
+*.zip
+_upload_temp/
+.codebuddy/
+server.err
+server.log

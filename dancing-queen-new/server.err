@@ -1,0 +1,42 @@
+127.0.0.1 - - [14/Sep/2026 22:35:06] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:14] "GET /product-detail.html?product=rose-a HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:14] "GET /assets/js/products.js HTTP/1.1" 304 -
+127.0.0.1 - - [14/Sep/2026 22:35:14] "GET /assets/js/site.js HTTP/1.1" 304 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-2.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-3.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-4.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-6.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-5.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-7.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-8.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-detail.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-packaging.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-video1.mp4 HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-video2.mp4 HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-video3.mp4 HTTP/1.1" 200 -
+127.0.0.1 - - [14/Sep/2026 22:35:15] "GET /images/incense/rose-a-video4.mp4 HTTP/1.1" 200 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 52962)
+Traceback (most recent call last):
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 1311, in finish_request
+    self.RequestHandlerClass(request, client_address, self,
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 679, in do_GET
+    self.copyfile(f, self.wfile)
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 878, in copyfile
+    shutil.copyfileobj(source, outputfile)
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\shutil.py", line 204, in copyfileobj
+    fdst_write(buf)
+  File "C:\Users\Admin1\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+----------------------------------------
