@@ -7,3 +7,6 @@ _upload_temp/
 .codebuddy/
 server.err
 server.log
+.wrangler/
+.wrangler-dry/
+.wrangler-dry4/
