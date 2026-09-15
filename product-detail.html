@@ -6,7 +6,12 @@
   <title id="pgTitle">Product Detail · Dancing Queen</title>
   <meta name="description" content="View product details for our hand-rolled incense bead bracelets. Natural herbs, ancient recipes.">
   <meta property="og:type" content="product">
-  <meta property="og:image" content="images/incense/rose-a-1.jpg">
+  <meta property="og:url" content="https://dancingqueenlife.com/product-detail.html">
+  <meta property="og:site_name" content="Dancing Queen">
+  <meta property="og:image" content="https://dancingqueenlife.com/images/incense/rose-a-1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://dancingqueenlife.com/images/incense/rose-a-1.jpg">
+  <link rel="canonical" href="https://dancingqueenlife.com/product-detail.html">
   <meta name="theme-color" content="#0f0f14">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0f14'/%3E%3Ccircle cx='16' cy='16' r='7.5' fill='none' stroke='%23b8935a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2.5' fill='%23b8935a'/%3E%3C/svg%3E">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -261,7 +266,11 @@
       var ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) ogTitle.setAttribute('content', product.name + ' · Dancing Queen');
       var ogImg = document.querySelector('meta[property="og:image"]');
-      if (ogImg) ogImg.setAttribute('content', product.thumb || product.images[0]);
+      if (ogImg) ogImg.setAttribute('content', 'https://dancingqueenlife.com/' + (product.thumb || product.images[0]));
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', 'https://dancingqueenlife.com/product-detail.html?product=' + productId);
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute('href', 'https://dancingqueenlife.com/product-detail.html?product=' + productId);
 
       // Fill info
       document.getElementById('productName').textContent = product.name;

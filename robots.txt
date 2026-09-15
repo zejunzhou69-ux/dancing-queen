@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dancing-queen.vercel.app/sitemap.xml
+Sitemap: https://dancingqueenlife.com/sitemap.xml
