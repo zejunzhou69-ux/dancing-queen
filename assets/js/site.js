@@ -22,7 +22,7 @@
      先用 Sandbox（测试），测试通过后换成 Live（正式）。
   ------------------------------------ */
   var PAYPAL = {
-    clientId: '',            // ← 例如 'AeA1QIZ1234567890abcdefg'
+    clientId: 'ATST2dH89yeHC-4skfp4ACGLcA-JN-22GvDeXOVF8Q4sq5d0CvKL2p9374UV6MryjFjtY7YN1iGXwHx8',
     currency: 'USD'
   };
   var PAYPAL_ENABLED = String(PAYPAL.clientId || '').length > 10;
