@@ -144,9 +144,10 @@
       '        <span class="text-xs tracking-[0.2em] uppercase text-[#0f0f14]/50">Total</span>',
       '        <span class="font-display text-3xl text-[#b8935a]" data-checkout-total>$0</span>',
       '      </div>',
-      '      <div id="dq-pay-tabs" class="grid grid-cols-2 gap-px bg-[#0f0f14]/10 mb-5 hidden">',
-      '        <button type="button" data-pay-tab="paypal" class="bg-white py-3 text-[11px] tracking-[0.15em] uppercase text-[#0f0f14]/60 transition-colors">Card / PayPal</button>',
-      '        <button type="button" data-pay-tab="qr" class="bg-white py-3 text-[11px] tracking-[0.15em] uppercase text-[#0f0f14]/60 transition-colors">WeChat / Alipay</button>',
+      '      <div id="dq-pay-tabs" class="grid grid-cols-3 gap-px bg-[#0f0f14]/10 mb-5 hidden">',
+      '        <button type="button" data-pay-tab="paypal" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">Card / PayPal</button>',
+      '        <button type="button" data-pay-tab="qr" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">WeChat / Alipay</button>',
+      '        <button type="button" data-pay-tab="bank" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">Bank / 汇款</button>',
       '      </div>',
       '      <div data-pay-panel="paypal" class="mb-6 hidden">',
       '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-4">Pay securely with credit card, debit card or your PayPal account. No PayPal account required.<br>支持信用卡 / 借记卡付款，无需 PayPal 账户。</p>',
@@ -164,7 +165,17 @@
       '            <p class="text-[11px] text-[#0f0f14]/60 mt-2">支付宝 · Alipay</p>',
       '          </div>',
       '        </div>',
-      '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed">扫码付款后，把下面订单信息补全并发送给我们确认即可发货。<br>After payment, complete the details below and send it to us.</p>',
+      '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-2">扫码付款后，把下面订单信息补全并发送给我们确认即可发货。<br>After payment, complete the details below and send it to us.</p>',
+      '        <p class="text-[11px] text-[#0f0f14]/35 leading-relaxed">* 适用于持有中国大陆银行卡的用户<br>For customers with a Mainland China bank account</p>',
+      '      </div>',
+      '      <div data-pay-panel="bank" class="mb-6 hidden">',
+      '        <p class="text-xs text-[#0f0f14]/60 leading-relaxed mb-3">For wholesale, bulk orders and customers without PayPal.<br>批发、大额订单，以及没有 PayPal 的客户：</p>',
+      '        <ul class="space-y-3 text-xs text-[#0f0f14]/60 leading-relaxed">',
+      '          <li><span class="text-[#0f0f14]">Bank Transfer (T/T)</span><br>银行电汇 — 适合批发与大额订单，我们提供收款账户信息</li>',
+      '          <li><span class="text-[#0f0f14]">Western Union</span><br>西联汇款 — 适合没有 PayPal 账户的客户</li>',
+      '          <li><span class="text-[#0f0f14]">Cash on Delivery (COD)</span><br>货到付款 — 中东等部分地区支持，请先联系我们确认</li>',
+      '        </ul>',
+      '        <a data-bank-contact target="_blank" rel="noopener" class="mt-5 block bg-[#0f0f14] text-[#f7f4ef] py-3 text-center text-xs tracking-[0.15em] uppercase hover:bg-[#b8935a] transition-colors">Contact for details · 联系获取收款信息</a>',
       '      </div>',
       '      <label class="block text-xs tracking-[0.15em] uppercase text-[#0f0f14]/50 mb-2">Order details · 订单信息</label>',
       '      <textarea data-order-text rows="9" class="w-full border border-[#0f0f14]/15 bg-white p-3 text-sm leading-relaxed font-light focus:outline-none focus:border-[#b8935a] transition-colors"></textarea>',
@@ -285,6 +296,13 @@
     var text = buildOrderText();
     if (ta) ta.value = text;
     if (wa) wa.href = 'https://wa.me/' + CONTACT.whatsappNumber + '?text=' + encodeURIComponent(text);
+
+    var bank = modal.querySelector('[data-bank-contact]');
+    if (bank) {
+      bank.href = 'https://wa.me/' + CONTACT.whatsappNumber + '?text=' +
+        encodeURIComponent('Hi, I would like to place a wholesale / bulk order. Please send me the bank transfer (T/T) or Western Union details. 我想咨询批发/大额订单的汇款方式。');
+    }
+
     modal.classList.remove('hidden');
     initCheckoutUI();
   }
@@ -383,8 +401,8 @@
     for (var i = 0; i < tabs.length; i++) {
       var on = tabs[i].getAttribute('data-pay-tab') === name;
       tabs[i].className = on
-        ? 'bg-[#0f0f14] text-[#f7f4ef] py-3 text-[11px] tracking-[0.15em] uppercase transition-colors'
-        : 'bg-white text-[#0f0f14]/60 py-3 text-[11px] tracking-[0.15em] uppercase hover:text-[#b8935a] transition-colors';
+        ? 'bg-[#0f0f14] text-[#f7f4ef] py-3 px-1 text-[10px] tracking-[0.08em] uppercase transition-colors'
+        : 'bg-white text-[#0f0f14]/60 py-3 px-1 text-[10px] tracking-[0.08em] uppercase hover:text-[#b8935a] transition-colors';
     }
     var panels = document.querySelectorAll('[data-pay-panel]');
     for (var j = 0; j < panels.length; j++) {
