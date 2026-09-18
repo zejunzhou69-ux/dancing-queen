@@ -144,10 +144,9 @@
       '        <span class="text-xs tracking-[0.2em] uppercase text-[#0f0f14]/50">Total</span>',
       '        <span class="font-display text-3xl text-[#b8935a]" data-checkout-total>$0</span>',
       '      </div>',
-      '      <div id="dq-pay-tabs" class="grid grid-cols-3 gap-px bg-[#0f0f14]/10 mb-5 hidden">',
-      '        <button type="button" data-pay-tab="paypal" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">Card / PayPal</button>',
-      '        <button type="button" data-pay-tab="qr" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">WeChat / Alipay</button>',
-      '        <button type="button" data-pay-tab="bank" class="bg-white py-3 px-1 text-[10px] tracking-[0.08em] uppercase text-[#0f0f14]/60 transition-colors">COD / 货到付款</button>',
+      '      <div id="dq-pay-tabs" class="grid grid-cols-2 gap-px bg-[#0f0f14]/10 mb-5 hidden">',
+      '        <button type="button" data-pay-tab="paypal" class="bg-white py-3 text-[11px] tracking-[0.15em] uppercase text-[#0f0f14]/60 transition-colors">Card / PayPal</button>',
+      '        <button type="button" data-pay-tab="qr" class="bg-white py-3 text-[11px] tracking-[0.15em] uppercase text-[#0f0f14]/60 transition-colors">WeChat / Alipay</button>',
       '      </div>',
       '      <div data-pay-panel="paypal" class="mb-6 hidden">',
       '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-4">Pay securely with credit card, debit card or your PayPal account. No PayPal account required.<br>支持信用卡 / 借记卡付款，无需 PayPal 账户。</p>',
@@ -168,16 +167,7 @@
       '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-2">点击上方按钮显示收款二维码 · Tap a button above to show the QR code</p>',
       '        <p class="text-[11px] text-[#0f0f14]/35 leading-relaxed">* 适用于持有中国大陆银行卡的用户<br>For customers with a Mainland China bank account</p>',
       '      </div>',
-      '      <div data-pay-panel="bank" class="mb-6 hidden">',
-      '        <p class="text-xs text-[#0f0f14]/60 leading-relaxed mb-4">Cash on Delivery is available in selected Middle East regions.<br>货到付款适用于中东部分地区。</p>',
-      '        <ul class="space-y-2 text-xs text-[#0f0f14]/60 leading-relaxed mb-4">',
-      '          <li>• 沙特阿拉伯 · Saudi Arabia</li>',
-      '          <li>• 阿联酋 · United Arab Emirates</li>',
-      '          <li>• 其他地区请先咨询 · Other regions: contact us first</li>',
-      '        </ul>',
-      '        <p class="text-[11px] text-[#0f0f14]/35 leading-relaxed">* 下单后我们会先与你确认地址与运费，货款由物流在送达时收取。<br>We confirm your address and shipping first; payment is collected on delivery.</p>',
-      '        <a data-bank-contact target="_blank" rel="noopener" class="mt-5 block bg-[#0f0f14] text-[#f7f4ef] py-3 text-center text-xs tracking-[0.15em] uppercase hover:bg-[#b8935a] transition-colors">Confirm my region · 确认我的地区</a>',
-      '      </div>',
+
       '      <label class="block text-xs tracking-[0.15em] uppercase text-[#0f0f14]/50 mb-2">Order details · 订单信息</label>',
       '      <textarea data-order-text rows="9" class="w-full border border-[#0f0f14]/15 bg-white p-3 text-sm leading-relaxed font-light focus:outline-none focus:border-[#b8935a] transition-colors"></textarea>',
       '      <div class="grid grid-cols-2 gap-3 mt-4">',
@@ -326,12 +316,6 @@
     if (ta) ta.value = text;
     if (wa) wa.href = 'https://wa.me/' + CONTACT.whatsappNumber + '?text=' + encodeURIComponent(text);
 
-    var bank = modal.querySelector('[data-bank-contact]');
-    if (bank) {
-      bank.href = 'https://wa.me/' + CONTACT.whatsappNumber + '?text=' +
-        encodeURIComponent('Hi, I would like to place a wholesale / bulk order. Please send me the bank transfer (T/T) or Western Union details. 我想咨询批发/大额订单的汇款方式。');
-    }
-
     modal.classList.remove('hidden');
     initCheckoutUI();
   }
@@ -430,8 +414,8 @@
     for (var i = 0; i < tabs.length; i++) {
       var on = tabs[i].getAttribute('data-pay-tab') === name;
       tabs[i].className = on
-        ? 'bg-[#0f0f14] text-[#f7f4ef] py-3 px-1 text-[10px] tracking-[0.08em] uppercase transition-colors'
-        : 'bg-white text-[#0f0f14]/60 py-3 px-1 text-[10px] tracking-[0.08em] uppercase hover:text-[#b8935a] transition-colors';
+        ? 'bg-[#0f0f14] text-[#f7f4ef] py-3 text-[11px] tracking-[0.15em] uppercase transition-colors'
+        : 'bg-white text-[#0f0f14]/60 py-3 text-[11px] tracking-[0.15em] uppercase hover:text-[#b8935a] transition-colors';
     }
     var panels = document.querySelectorAll('[data-pay-panel]');
     for (var j = 0; j < panels.length; j++) {
