@@ -165,13 +165,7 @@
       '            <span class="block text-[10px] tracking-[0.05em] uppercase text-[#0f0f14]/40">Alipay</span>',
       '          </button>',
       '        </div>',
-      '        <div data-qr-view class="hidden text-center">',
-      '          <div class="inline-block bg-white border border-[#0f0f14]/10 rounded-sm p-3">',
-      '            <img data-qr-img src="" alt="Payment QR code" class="block w-[220px] max-w-full">',
-      '          </div>',
-      '          <p data-qr-tip class="text-xs text-[#0f0f14]/50 mt-3"></p>',
-      '        </div>',
-      '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-2">扫码付款后，把下面订单信息补全并发送给我们确认即可发货。<br>After payment, complete the details below and send it to us.</p>',
+      '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-2">点击上方按钮显示收款二维码 · Tap a button above to show the QR code</p>',
       '        <p class="text-[11px] text-[#0f0f14]/35 leading-relaxed">* 适用于持有中国大陆银行卡的用户<br>For customers with a Mainland China bank account</p>',
       '      </div>',
       '      <div data-pay-panel="bank" class="mb-6 hidden">',
@@ -195,10 +189,38 @@
       '  </div>',
       '</div>',
 
+      '<div id="dq-qr" class="fixed inset-0 z-[110] hidden">',
+      '  <div class="absolute inset-0 bg-black/60" data-qr-close></div>',
+      '  <div class="relative h-full w-full flex items-center justify-center p-4">',
+      '    <div class="bg-[#f7f4ef] w-full max-w-xs p-5 text-center relative">',
+      '      <button type="button" data-qr-close class="absolute top-2 right-3 text-2xl leading-none text-[#0f0f14]/40 hover:text-[#b8935a] transition-colors">&times;</button>',
+      '      <p data-qr-title class="text-sm tracking-[0.15em] uppercase mb-1"></p>',
+      '      <p data-qr-tip class="text-[11px] text-[#0f0f14]/40 mb-4"></p>',
+      '      <div class="inline-block bg-white border border-[#0f0f14]/10 rounded-sm p-3">',
+      '        <img data-qr-img src="" alt="Payment QR code" class="block w-[230px] max-w-full">',
+      '      </div>',
+      '      <p class="text-[11px] text-[#0f0f14]/45 mt-4 leading-relaxed">付款后请回到此页面，把订单信息发给我们确认<br>After payment, return here and send us the order details</p>',
+      '    </div>',
+      '  </div>',
+      '</div>',
+
       '<div id="dq-toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[120] bg-[#0f0f14] text-[#f7f4ef] px-6 py-3 text-xs tracking-[0.15em] uppercase opacity-0 pointer-events-none transition-opacity duration-300 whitespace-nowrap"></div>'
     ].join('');
 
     document.body.appendChild(holder);
+  }
+
+  function openQrModal(which) {
+    var modal = document.getElementById('dq-qr');
+    if (!modal) return;
+    var img = modal.querySelector('[data-qr-img]');
+    var title = modal.querySelector('[data-qr-title]');
+    var tip = modal.querySelector('[data-qr-tip]');
+    var isWechat = which === 'wechat';
+    if (img) img.src = isWechat ? 'images/payments/wechat-pay.jpg' : 'images/payments/alipay.jpg';
+    if (title) title.textContent = isWechat ? '微信支付 · WeChat Pay' : '支付宝 · Alipay';
+    if (tip) tip.textContent = isWechat ? '打开微信扫一扫' : '打开支付宝扫一扫';
+    modal.classList.remove('hidden');
   }
 
   function renderCount() {
@@ -494,19 +516,14 @@
     var qrBtn = t.closest('[data-qr-show]');
     if (qrBtn) {
       e.preventDefault();
-      var which = qrBtn.getAttribute('data-qr-show');
-      var qrView = document.querySelector('[data-qr-view]');
-      var qrImg = document.querySelector('[data-qr-img]');
-      var qrTip = document.querySelector('[data-qr-tip]');
-      if (qrView && qrImg) {
-        qrImg.src = which === 'wechat' ? 'images/payments/wechat-pay.jpg' : 'images/payments/alipay.jpg';
-        if (qrTip) {
-          qrTip.textContent = which === 'wechat'
-            ? '打开微信扫一扫 · Open WeChat and scan'
-            : '打开支付宝扫一扫 · Open Alipay and scan';
-        }
-        qrView.classList.remove('hidden');
-      }
+      openQrModal(qrBtn.getAttribute('data-qr-show'));
+      return;
+    }
+
+    if (t.closest('[data-qr-close]')) {
+      e.preventDefault();
+      var qrModal = document.getElementById('dq-qr');
+      if (qrModal) qrModal.classList.add('hidden');
       return;
     }
 
