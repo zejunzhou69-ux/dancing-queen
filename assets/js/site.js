@@ -156,14 +156,20 @@
       '      </div>',
       '      <div data-pay-panel="qr" class="mb-6">',
       '        <div class="grid grid-cols-2 gap-3 mb-4">',
-      '          <div class="text-center">',
-      '            <div class="aspect-square bg-white border border-[#0f0f14]/10 rounded-sm p-2"><img src="images/payments/wechat-pay.jpg" alt="WeChat Pay QR" class="w-full h-full object-contain"></div>',
-      '            <p class="text-[11px] text-[#0f0f14]/60 mt-2">微信支付 · WeChat Pay</p>',
+      '          <button type="button" data-qr-show="wechat" class="border border-[#0f0f14]/15 bg-white py-4 px-2 hover:border-[#b8935a] transition-colors">',
+      '            <span class="block text-xs tracking-[0.1em] mb-1">微信支付</span>',
+      '            <span class="block text-[10px] tracking-[0.05em] uppercase text-[#0f0f14]/40">WeChat Pay</span>',
+      '          </button>',
+      '          <button type="button" data-qr-show="alipay" class="border border-[#0f0f14]/15 bg-white py-4 px-2 hover:border-[#b8935a] transition-colors">',
+      '            <span class="block text-xs tracking-[0.1em] mb-1">支付宝</span>',
+      '            <span class="block text-[10px] tracking-[0.05em] uppercase text-[#0f0f14]/40">Alipay</span>',
+      '          </button>',
+      '        </div>',
+      '        <div data-qr-view class="hidden text-center">',
+      '          <div class="inline-block bg-white border border-[#0f0f14]/10 rounded-sm p-3">',
+      '            <img data-qr-img src="" alt="Payment QR code" class="block w-[220px] max-w-full">',
       '          </div>',
-      '          <div class="text-center">',
-      '            <div class="aspect-square bg-white border border-[#0f0f14]/10 rounded-sm p-2"><img src="images/payments/alipay.jpg" alt="Alipay QR" class="w-full h-full object-contain"></div>',
-      '            <p class="text-[11px] text-[#0f0f14]/60 mt-2">支付宝 · Alipay</p>',
-      '          </div>',
+      '          <p data-qr-tip class="text-xs text-[#0f0f14]/50 mt-3"></p>',
       '        </div>',
       '        <p class="text-xs text-[#0f0f14]/50 leading-relaxed mb-2">扫码付款后，把下面订单信息补全并发送给我们确认即可发货。<br>After payment, complete the details below and send it to us.</p>',
       '        <p class="text-[11px] text-[#0f0f14]/35 leading-relaxed">* 适用于持有中国大陆银行卡的用户<br>For customers with a Mainland China bank account</p>',
@@ -484,6 +490,25 @@
 
     var payTab = t.closest('[data-pay-tab]');
     if (payTab) { e.preventDefault(); setPayTab(payTab.getAttribute('data-pay-tab')); return; }
+
+    var qrBtn = t.closest('[data-qr-show]');
+    if (qrBtn) {
+      e.preventDefault();
+      var which = qrBtn.getAttribute('data-qr-show');
+      var qrView = document.querySelector('[data-qr-view]');
+      var qrImg = document.querySelector('[data-qr-img]');
+      var qrTip = document.querySelector('[data-qr-tip]');
+      if (qrView && qrImg) {
+        qrImg.src = which === 'wechat' ? 'images/payments/wechat-pay.jpg' : 'images/payments/alipay.jpg';
+        if (qrTip) {
+          qrTip.textContent = which === 'wechat'
+            ? '打开微信扫一扫 · Open WeChat and scan'
+            : '打开支付宝扫一扫 · Open Alipay and scan';
+        }
+        qrView.classList.remove('hidden');
+      }
+      return;
+    }
 
     var inc = t.closest('[data-qty-inc]');
     if (inc) {
